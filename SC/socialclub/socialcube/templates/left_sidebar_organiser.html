@@ -1,0 +1,83 @@
+{% load staticfiles %}
+{% load gravatar %}
+
+
+<div class="left-bar">
+        <div class="span12 profile-status">                            
+                <a href="" class="" style="cursor: pointer;"><span class="profile-out" style="cursor: pointer;">BASIC ACCOUNT</span></a>
+                <a href="/accounts/logout/" class=" pull-right logout-icon"><img src="{% static 'images/logout_icon.png' %}" alt="Logout"></a>            
+        </div>
+        <div class="span12 profile">
+            <h3>{{ single_user }} </h3>
+            <p>
+                {% for item in single_user.address_set.all %}
+                    {{ item }}
+                {% endfor %}
+            </p>
+
+            {% for item in single_user.coverpicture_set.all %}
+            <img src="{{MEDIA_URL}}{{ item }}" alt="profile background" class="profile-bg blur">
+            {% empty %}
+            <img src="http://spotpicker.net/socialcube/img/blur-default.jpg" alt="profile background" class="profile-bg">
+            {% endfor %}
+
+            <div class="center-block pic-round">
+            {% gravatar single_user.email 114 %}
+            </div>
+
+            <img src="{% static 'images/circle.png' %}" alt="" class="center-block img-ornament">
+            <img src="{% static 'images/status.png' %}" alt="" class="center-block img-status">
+            <div class="notification">
+                <span class="notification-text notification-text-short">Organizer</span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <nav class="clearfix">
+            <div class="menu-profile">
+                
+                <h3>GENERAL</h3>
+                
+                <ul class="nav">
+                    <li><a href="/organisers/{{ single_user.username }}/personal-information/"><img src="{% static 'images/profile.png' %}" class="img-icon">My Profile</a></li>
+                    <li><a href=""><img src="{% static 'images/event.png' %}" class="img-icon">My Events</a><a href=""><span class="add-new"><img src="{% static 'images/add-new.png' %}"></span></a></li>
+                    <li><a href=""><img src="{% static 'images/team.png' %}" class="img-icon">My Teams</a><a href=""><span class="add-new"><img src="{% static 'images/add-new.png' %}"></span></a></li> 
+                    <li><a href=""><img src="{% static 'images/task.png' %}" class="img-icon">My Tasks</a></li>                   
+                </ul>
+
+            </div>
+
+            <div class="menu-profile">
+                
+                <h3>ACTIVITY</h3>
+                <ul class="nav">
+                    <li><a href=""><img src="{% static 'images/message.png' %}" class="img-icon">Messages<span class="badge">8</span></a></li>
+                    <li><a href=""><img src="{% static 'images/notification.png' %}" class="img-icon">Notification</a></li>
+                    <li><a href=""><img src="{% static 'images/meeting.png' %}" class="img-icon">Meetings</a></li>
+                </ul>
+
+            </div>
+            
+            <div class="menu-profile">
+                <h3>SETTINGS</h3>
+                <ul class="nav">
+                    <li><a href=""><img src="{% static 'images/integration.png' %}" class="img-icon">Integration</a></li>
+                    <li><a href=""><img src="{% static 'images/notification1.png' %}" class="img-icon">Notification</a></li>
+                    <li><a href=""><img src="{% static 'images/billing.png' %}" class="img-icon">Billing</a></li> 
+                </ul>
+            </div>
+
+            <div class="menu-profile">
+                <h3>Pay-As-You-Go</h3>
+                
+                <div class="menu-profile-content">
+                    <p>Get our premium features or use or pricing simulator</p>
+                    <img src="{% static 'images/crown.png' %}" alt="crown" class="center-block" />
+                    <button class="button full-width btn-pricing-simulator">PRICING CALCULATOR</button>
+                </div>
+
+            </div>
+
+        </nav>
+        
+
+    </div>

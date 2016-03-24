@@ -1,0 +1,217 @@
+{% load staticfiles %}
+
+<aside class="aside">
+    
+        <form class="search-bar">
+            <input type="text" placeholder="Search..." class="search" />
+            <span class="search-icon"></span>
+        </form>
+
+        <a href="">
+            <div class="button-back"><img src="{% static 'images/icon-arrow-back.png' %}">My Profile</div>
+        </a>
+        
+        <div class="feature-wrap">
+            <h4>My badges<span>1</span></h4>
+            
+            <div class="feature-content span12">
+                
+                <div class="span4 feature-badge">
+                	
+                    <img src="{% static 'images/badge.png' %}" id="registration-badge" class="center-block" />
+                    <p>Registration</p>
+                    
+                </div>
+
+                <div class="span4 feature-badge">
+                    <img src="{% static 'images/badge.png' %}" id="registration-badge" class="center-block" />
+                    <p>Registration</p>
+                </div>
+
+                <div class="span4 feature-badge">
+                    <img src="{% static 'images/badge.png' %}" id="registration-badge" class="center-block" />
+                    <p>Registration</p>
+                </div>
+
+                <div class="span4 feature-badge">
+                    <img src="{% static 'images/badge.png' %}" id="registration-badge" class="center-block" />
+                    <p>Registration</p>
+                </div>
+
+                <div class="span4 feature-badge">
+                    <img src="{% static 'images/badge.png' %}" id="registration-badge" class="center-block" />
+                    <p>Registration</p>
+                </div>
+
+                <div class="span4 feature-badge">
+                    <img src="{% static 'images/badge.png' %}" id="registration-badge" class="center-block" />
+                    <p>Registration</p>
+                </div>
+
+                <div class="span4 feature-badge">
+                    <img src="{% static 'images/badge.png' %}" id="registration-badge" class="center-block" />
+                    <p>Registration</p>
+                </div>
+
+                <div class="span4 feature-badge">
+                    <img src="{% static 'images/badge.png' %}" id="registration-badge" class="center-block" />
+                    <p>Registration</p>
+                </div>
+
+                <div class="span4 feature-badge">
+                    <a href="">
+                    	<img src="{% static 'images/add.jpg' %}" class="center-block" />
+                    </a>
+                    <p></p>
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="clearfix"></div>
+       
+        <div class="feature-wrap">
+            <h4>Complete your profile<span>16%</span></h4>
+            
+            <div class="feature-info-wrap">
+                <a href="/organisers/{{ single_user.username }}/personal-information/">
+                    <div class="feature-info clearfix">
+                        
+                        <div class="span2">
+                            <img src="{% static 'images/person.jpg' %}" class="center-block feature-icon-person" />
+                        </div>
+
+                        <div class="span8">
+                            <h5>Personal Information</h5>
+                            <p>Information about you</p>
+                        </div>
+
+                        <div class="span2 confirm-icon">
+
+                        </div>                    
+                    </div>
+                </a>
+            </div>
+
+            <div class="feature-info-wrap">
+                <a href="/organisers/{{ single_user.username }}/contact-information/">
+                    <div class="feature-info clearfix">
+                        <div class="span2">
+                            <img src="{% static 'images/person.jpg' %}" class="center-block feature-icon-person" />
+                        </div>
+
+                        <div class="span8">
+                            <h5>Contact Information</h5>
+                            <p>Address, positions, jobs</p>
+                        </div>
+
+                        <div class="span2 confirm-icon">
+
+                        </div> 
+                    </div>
+                </a>
+            </div>
+
+            <div class="feature-info-wrap">
+                <a href="/organisers/{{ single_user.username }}/company-information/">
+                    <div class="feature-info clearfix">
+                        <div class="span2">
+                        	<img src="{% static 'images/person.jpg' %}" class="center-block feature-icon-person" />
+                        </div>
+                        <div class="span8">
+                            <h5>Company Information</h5>
+                            <p>Company address</p>
+                        </div>
+                        <div class="span2 confirm-icon">
+
+                        </div>                    
+                    </div>
+                </a>
+            </div>
+
+            <div class="feature-info-wrap">
+                <a href="/organisers/{{ single_user.username }}/payment-information/">
+                    <div class="feature-info clearfix">
+                        <div class="span2">
+                        	<img src="{% static 'images/person.jpg' %}" class="center-block feature-icon-person" />
+                        </div>
+                        <div class="span8">
+                            <h5>Payment Information</h5>
+                            <p>Payment preferences</p>
+                        </div>
+                        <div class="span2 confirm-icon">
+
+                        </div>                     
+                    </div>
+                </a>
+            </div>
+
+            <div class="feature-info-wrap">
+                  <a href="/organisers/{{ single_user.username }}/notification-information/">
+                      <div class="feature-info clearfix">
+                          <div class="span2">
+                          	<img src="{% static 'images/person.jpg' %}" class="center-block feature-icon-person" />
+                          </div>
+                          <div class="span8">
+                              <h5>Notification Information</h5>
+                              <p>Notifications, Integrations</p>
+                          </div>
+                          <div class="span2 confirm-icon">
+
+                        </div>                     
+                      </div>
+                  </a>
+            </div>
+            
+            <div class="feature-info-wrap">
+                <a href="/organisers/{{ single_user.username }}/security-information/">
+                    <div class="feature-info clearfix">
+                        <div class="span2">
+                        	<img src="{% static 'images/person.jpg' %}" class="center-block feature-icon-person" />
+                        </div>
+                        <div class="span8">
+                            <h5>Security Information</h5>
+                            <p>Control your public data</p>
+                        </div>
+                        <div class="span2 confirm-icon">
+
+                        </div>                    
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        
+        <div class="feature-wrap">
+            <h4>Reccommended friends</h4>
+            
+                <!-- START SLIDER -->
+                <div class="project">
+                    <div class="sky-carousel sc-no-select" style="visibility: visible;">
+                        <div class="sky-carousel-wrapper" style="visibility: visible; opacity: 1;">
+                            
+                            <ul class="sky-carousel-container" style="margin-top: 115px; left: -1556px; transition: left 0.45s ease-out; -webkit-transition: left 0.45s ease-out;">
+
+                                <li style="transform-origin: center 139px 0px; transform: translate(0px, 0px) scale(0.5) translateZ(0px); opacity: 0.6;">
+                                    <a href=""><img src="{% static 'images/tomi.png' %}" alt="" class="sc-image"></a>
+                                </li>
+
+                                <li style="transform-origin: center 139px 0px; transform: translate(151px, 0px) scale(0.5) translateZ(0px); opacity: 0.6;">
+                                    <a href=""><img src="{% static 'images/rika.png' %}" alt="" class="sc-image"></a>
+                                </li>
+
+                                <li style="transform-origin: center 139px 0px; transform: translate(302px, 0px) scale(0.5) translateZ(0px); opacity: 0.6;">
+                                    <a href=""><img src="{% static 'images/jazmin.png' %}" alt="" class="sc-image"></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+		</div>
+    
+    </aside>
+
+    

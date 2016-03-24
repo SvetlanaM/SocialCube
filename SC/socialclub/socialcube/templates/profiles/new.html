@@ -1,0 +1,10 @@
+{% extends 'profiles/single_user.html' %}
+
+
+{% block content %}
+<form action="" method="POST">{% csrf_token %}
+{{ form.as_p }}
+<p>Test</p>
+<input type="submit" value="update">
+</form>
+{% endblock %}

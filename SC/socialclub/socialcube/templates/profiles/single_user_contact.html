@@ -1,0 +1,23 @@
+{% extends 'profiles/single_user.html' %}
+
+{% block content %}
+<div class="personal-information">
+			<h3>Contact information</h3>
+			{% for user in single_user.address_set.all %}
+	        <p class="user-personal street-address">{{ user.street_address|default:"Enter your street address" }}</p>
+	        <p class="user-personal street-number">{{ user.street_number|default:"Enter your street number" }}</p>
+	        <p class="user-personal city">{{ user.city|default:"Enter your city" }}</p>
+	        <p class="user-personal state">{{ user.state|default:"Enter your state" }}</p>
+	        <p class="user-personal zipcode">{{ user.zipcode|default:"Enter your city zipcode" }}</p>
+	        {% endfor %}
+	    </div>
+
+	<div class="span12">
+        <div class="span6">
+        	<a href="/edit/personal-information"><button class="button-reverse button-content pull-left button-edit">EDIT</button></a>
+        </div>
+        <div class="span6">
+        	<button class="button button-content pull-right">NEXT</button>
+        </div>
+    </div>
+{% endblock content %}

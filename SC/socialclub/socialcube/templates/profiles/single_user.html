@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load gravatar %}
+
+{% block title %} {{ single_user }} {% endblock %}
+
+{% block left-sidebar  %}
+	{% include 'left_sidebar_organiser.html' %}
+{% endblock left-sidebar %}
+
+{% block cover %}
+	<div class="cover-wrap">
+            
+                <div class="cover-notification">
+                <div class="user-image">
+                {% gravatar single_user.email 160 %}
+                </div>
+                    <a href=""><span class="notification-text">122 followers</span></a>|
+                    <a href=""><span class="notification-text">12 following</span></a>|
+                    <a href=""><span class="notification-text">5 events</span></a>|
+                    <a href=""><span class="notification-text">12 teams</span></a>
+                </div>
+
+    </div>
+{% endblock cover %}
+
+{% block content %}
+		<div class="personal-information">
+			<h3>Personal information</h3>
+	        <p class="user-personal first-name">{{ single_user.first_name|default:"Enter your first name" }}</p>
+	        <p class="user-personal last-name">{{ single_user.last_name|default:"Enter your last name" }}</p>
+	        <p class="user-personal email-address">{{ single_user.email|default:"Enter your email address" }}</p>
+	        <p class="user-personal phone-number"><span class="inline">{{single_user.phone_prefix}}</span>{{ single_user.phone_number|default:"Enter your phone number" }}</p>
+	        <p class="user-personal position">{{ single_user.position|default:"Enter your position" }}</p>
+	        <p class="user-personal age">
+	        {{ single_user.age|default:"Enter your age" }}
+	        
+
+	        </p>
+	    </div>
+
+	<div class="span12">
+        <div class="span6">
+        	<a href="/edit/personal-information"><button class="button-reverse button-content pull-left button-edit">EDIT</button></a>
+        </div>
+        <div class="span6">
+        	<a href="/organisers/{{ single_user.username }}/contact-information/">
+        		<button class="button button-content pull-right">NEXT</button>
+        	</a>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block right-sidebar %}
+	{% include 'right-sidebar-profile.html' %}
+{% endblock right-sidebar %}
+	
+
+<!--
+
+{{ single_user }} 
+
+{% gravatar single_user.email 50 %}
+
+{% for item in single_user.address_set.all %}
+{{ item }}
+{% endfor %}
+
+{% for item in single_user.company_set.all %}
+{{ item }}
+{{ item.position }}
+{% endfor %}
+
+{% for item in single_user.coverpicture_set.all %}
+<img src="{{MEDIA_URL}}{{ item }}" >
+{% endfor %}
+-->
+{% block js %}
+<script type="text/javascript" src="{% static 'js/jquery.sky.carousel-1.0.2.min.js' %}"></script>
+	
+<script>
+$(".user-personal:contains('Enter')")
+	.closest(".user-personal").css("color" , "#d8d8d8");
+	
+
+{% for item in single_user.coverpicture_set.all %}
+	$('.cover-wrap').css('background-image', 'url("{{MEDIA_URL}}{{ item }}")');
+	{% empty %}
+
+$('.cover-wrap').css('background-image', 'url("http://spotpicker.net/socialcube/img/cover-default.jpg")');
+{% endfor %}
+
+</script>
+       <script type="text/javascript">
+	$(function() {
+		$('.sky-carousel').carousel({
+			itemWidth: 95,
+			itemHeight: 145,
+			distance: 8,
+			selectedItemDistance: 80,
+			selectedItemZoomFactor: 1.2,
+			unselectedItemZoomFactor: 0.5,
+			unselectedItemAlpha: 0.4,
+			motionStartDistance: 220,
+			topMargin: 45,
+			gradientStartPoint: 0.8,
+			gradientOverlayColor: "#f3f3f3",
+			gradientOverlaySize: 1,
+			selectByClick: true
+		});
+	});	
+</script>
+{% endblock js %}
